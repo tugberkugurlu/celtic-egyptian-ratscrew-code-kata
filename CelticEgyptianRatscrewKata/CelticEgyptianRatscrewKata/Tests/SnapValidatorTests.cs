@@ -14,7 +14,7 @@ namespace CelticEgyptianRatscrewKata.Tests
             ruleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
             var rules = new List<IRule> { ruleMock.Object, ruleMock.Object };
 
-            var stack = new Stack(Enumerable.Empty<Card>());
+            var stack = Stack.Empty();
             var snapValidator = new SnapValidator();
             bool canSnap = snapValidator.CanSnap(stack, rules);
 
@@ -28,7 +28,7 @@ namespace CelticEgyptianRatscrewKata.Tests
             ruleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
             var rules = new List<IRule> { ruleMock.Object };
 
-            var stack = new Stack(Enumerable.Empty<Card>());
+            var stack = Stack.Empty();
             var snapValidator = new SnapValidator();
             snapValidator.CanSnap(stack, rules);
 
