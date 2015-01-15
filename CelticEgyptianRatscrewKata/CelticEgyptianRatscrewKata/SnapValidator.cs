@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CelticEgyptianRatscrewKata
 {
@@ -6,7 +7,7 @@ namespace CelticEgyptianRatscrewKata
     {
         public bool CanSnap(Stack stack, List<IRule> rules)
         {
-            return false;
+            return rules.Any(rule => rule.CanSnap(stack));
         }
     }
 }
