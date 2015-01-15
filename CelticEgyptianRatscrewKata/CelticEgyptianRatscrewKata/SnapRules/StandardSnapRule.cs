@@ -4,7 +4,7 @@
     {
         public bool CanSnap(Stack stack)
         {
-            return true;
+            return false;
         }
     }
 }
