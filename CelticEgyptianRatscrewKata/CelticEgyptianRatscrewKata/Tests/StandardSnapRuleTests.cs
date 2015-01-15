@@ -7,6 +7,15 @@ namespace CelticEgyptianRatscrewKata.Tests
     public class StandardSnapRuleTests
     {
         [Test]
+        public void ShouldFailOnEmptyStack()
+        {
+            var stack = Stack.Empty();
+
+            var rule = new StandardSnapRule();
+            Assert.That(rule.CanSnap(stack), Is.False);
+        }
+
+        [Test]
         public void ShouldFailIfNoPairFound()
         {
             var stack = new Stack(new List<Card>
@@ -17,7 +26,6 @@ namespace CelticEgyptianRatscrewKata.Tests
 
             var rule = new StandardSnapRule();
             Assert.That(rule.CanSnap(stack), Is.False);
-
         }
     }
 }
