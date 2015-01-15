@@ -11,9 +11,8 @@ namespace CelticEgyptianRatscrewKata.Tests
         {
             var expectedCard = new Card(Suit.Clubs, Rank.Ace);
             var stack = new Stack(new List<Card> {expectedCard});
-            var card = stack.First();
 
-            Assert.That(card, Is.EqualTo(expectedCard));
+            CollectionAssert.AreEqual(stack, new List<Card> {expectedCard});
         }
     }
 }
