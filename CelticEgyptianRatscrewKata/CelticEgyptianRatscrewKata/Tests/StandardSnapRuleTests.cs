@@ -27,5 +27,20 @@ namespace CelticEgyptianRatscrewKata.Tests
             var rule = new StandardSnapRule();
             Assert.That(rule.CanSnap(stack), Is.False);
         }
+
+        [Test]
+        public void ShouldPassIfPairInStack()
+        {
+            var stack = new Stack(new List<Card>
+            {
+                new Card(Suit.Clubs, Rank.Ace),
+                new Card(Suit.Clubs, Rank.Two),
+                new Card(Suit.Diamonds, Rank.Two),
+                new Card(Suit.Clubs, Rank.Three),
+            });
+
+            var rule = new StandardSnapRule();
+            Assert.That(rule.CanSnap(stack), Is.True);
+        }
     }
 }
