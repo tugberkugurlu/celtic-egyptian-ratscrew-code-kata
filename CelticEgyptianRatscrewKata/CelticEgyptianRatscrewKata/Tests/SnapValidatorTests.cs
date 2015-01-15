@@ -22,6 +22,22 @@ namespace CelticEgyptianRatscrewKata.Tests
         }
 
         [Test]
+        public void ShouldBeSnappableIfARuleReturnsTrue()
+        {
+            var falseRuleMock = new Mock<IRule>();
+            var trueRuleMock = new Mock<IRule>();
+            falseRuleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
+            trueRuleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(true);
+            var rules = new List<IRule> { falseRuleMock.Object, trueRuleMock.Object };
+
+            var stack = Stack.Empty();
+            var snapValidator = new SnapValidator();
+            bool canSnap = snapValidator.CanSnap(stack, rules);
+
+            Assert.That(canSnap, Is.True);
+        }
+
+        [Test]
         public void ShouldPassStackToRule()
         {
             var ruleMock = new Mock<IRule>();
