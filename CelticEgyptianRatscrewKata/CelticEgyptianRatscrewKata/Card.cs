@@ -11,7 +11,12 @@
             m_Rank = rank;
         }
 
-#region EqualityMembers
+        public override string ToString()
+        {
+            return string.Format("Card {0} of {1}", m_Rank, m_Suit);
+        }
+
+        #region EqualityMembers
         protected bool Equals(Card other)
         {
             return m_Suit == other.m_Suit && m_Rank == other.m_Rank;
