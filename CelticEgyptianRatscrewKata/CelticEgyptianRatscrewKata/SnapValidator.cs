@@ -5,7 +5,7 @@ namespace CelticEgyptianRatscrewKata
 {
     public class SnapValidator
     {
-        public bool CanSnap(Stack stack, List<IRule> rules)
+        public bool CanSnap(Stack stack, IEnumerable<IRule> rules)
         {
             return rules.Any(rule => rule.CanSnap(stack));
         }
