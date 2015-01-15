@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using NUnit.Framework;
 
 namespace CelticEgyptianRatscrewKata.Tests
@@ -13,6 +12,21 @@ namespace CelticEgyptianRatscrewKata.Tests
             var stack = new Stack(new List<Card> {expectedCard});
 
             CollectionAssert.AreEqual(stack, new List<Card> {expectedCard});
+        }
+
+        [Test]
+        public void ShouldReadAllCards()
+        {
+            var expectedCardsInStack = new List<Card>
+            {
+                new Card(Suit.Clubs, Rank.Ace),
+                new Card(Suit.Clubs, Rank.Two),
+                new Card(Suit.Clubs, Rank.Three),
+            };
+            var stack = new Stack(expectedCardsInStack);
+
+            CollectionAssert.AreEqual(stack, expectedCardsInStack);
+            
         }
     }
 }
