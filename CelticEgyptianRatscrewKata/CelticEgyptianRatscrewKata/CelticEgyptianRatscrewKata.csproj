@@ -49,15 +49,18 @@
     <Compile Include="IRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rank.cs" />
+    <Compile Include="SnapRules\StandardSnapRule.cs" />
     <Compile Include="SnapValidator.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Tests\SnapValidatorTests.cs" />
     <Compile Include="Tests\StackTests.cs" />
     <Compile Include="Suit.cs" />
+    <Compile Include="Tests\StandardSnapRuleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
