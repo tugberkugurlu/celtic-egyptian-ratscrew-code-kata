@@ -26,5 +26,18 @@ namespace CelticEgyptianRatscrewKata.Tests
             });
             Assert.That(rule.CanSnap(stack), Is.False);
         }
+
+        [Test]
+        public void ShouldPassWithSandwichInStack()
+        {
+            var rule = new SandwichSnapRule();
+            var stack = new Stack(new List<Card>
+            {
+                new Card(Suit.Clubs, Rank.Ace),
+                new Card(Suit.Clubs, Rank.Two),
+                new Card(Suit.Spades, Rank.Ace),
+            });
+            Assert.That(rule.CanSnap(stack), Is.True);
+        }
     }
 }
