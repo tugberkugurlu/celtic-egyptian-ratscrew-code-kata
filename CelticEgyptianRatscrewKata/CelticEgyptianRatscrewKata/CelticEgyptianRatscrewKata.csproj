@@ -54,6 +54,7 @@
     <Compile Include="SnapValidator.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Tests\DarkQueenSnapRuleTests.cs" />
+    <Compile Include="Tests\SandwichSnapRuleTests.cs" />
     <Compile Include="Tests\SnapValidatorTests.cs" />
     <Compile Include="Tests\StackTests.cs" />
     <Compile Include="Suit.cs" />
