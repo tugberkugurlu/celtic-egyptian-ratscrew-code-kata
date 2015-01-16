@@ -4,6 +4,14 @@
     {
         public bool CanSnap(Stack stack)
         {
+            Rank? oneBeforeCurrent = null;
+            Rank? twoBeforeCurrent = null;
+            foreach (var card in stack)
+            {
+                if (card.Rank == twoBeforeCurrent) return true;
+                twoBeforeCurrent = oneBeforeCurrent;
+                oneBeforeCurrent = card.Rank;
+            }
             return false;
         }
     }
