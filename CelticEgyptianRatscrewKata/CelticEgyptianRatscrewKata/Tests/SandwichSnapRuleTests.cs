@@ -12,12 +12,4 @@ namespace CelticEgyptianRatscrewKata.Tests
             Assert.That(rule.CanSnap(stack), Is.False);
         }
     }
-
-    public class SandwichSnapRule : IRule
-    {
-        public bool CanSnap(Stack stack)
-        {
-            return true;
-        }
-    }
 }
