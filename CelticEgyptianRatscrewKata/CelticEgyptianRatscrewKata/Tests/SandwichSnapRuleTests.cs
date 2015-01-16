@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using CelticEgyptianRatscrewKata.SnapRules;
+using NUnit.Framework;
 
 namespace CelticEgyptianRatscrewKata.Tests
 {
