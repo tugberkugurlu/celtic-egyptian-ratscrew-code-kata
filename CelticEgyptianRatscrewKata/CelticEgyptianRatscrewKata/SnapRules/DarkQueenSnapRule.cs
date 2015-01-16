@@ -9,7 +9,7 @@ namespace CelticEgyptianRatscrewKata.SnapRules
         public bool CanSnap(Stack stack)
         {
             var topCard = stack.FirstOrDefault();
-            return topCard != null && topCard.Equals(s_QueenOfSpades);
+            return s_QueenOfSpades.Equals(topCard);
         }
     }
 }
