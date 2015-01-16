@@ -37,5 +37,16 @@ namespace CelticEgyptianRatscrewKata.Tests
             Assert.That(rule.CanSnap(stack), Is.False);
         }
 
+        [Test]
+        public void ShouldPassWithQueenAtTop()
+        {
+            var rule = new DarkQueenSnapRule();
+            var stack = new Stack(new List<Card>
+            {
+                new Card(Suit.Spades, Rank.Queen),
+                new Card(Suit.Clubs, Rank.Ace)
+            });
+            Assert.That(rule.CanSnap(stack), Is.True);
+        }
     }
 }
