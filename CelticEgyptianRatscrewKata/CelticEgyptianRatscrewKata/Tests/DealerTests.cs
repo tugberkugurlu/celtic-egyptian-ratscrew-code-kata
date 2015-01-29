@@ -28,5 +28,27 @@ namespace CelticEgyptianRatscrewKata.Tests
             var expectedHands = new List<Cards> {new Cards(new List<Card> {new Card(Suit.Clubs, Rank.Ace)})};
             CollectionAssert.AreEqual(expectedHands, hands);
         }
+
+        [Test]
+        public void DealingThreeCardsToThreePiles()
+        {
+            var deck = new Cards(new List<Card>
+                                 {
+                                     new Card(Suit.Clubs, Rank.Ace),
+                                     new Card(Suit.Clubs, Rank.Two),
+                                     new Card(Suit.Clubs, Rank.Three)
+                                 });
+            var dealer = new Dealer();
+
+            var hands = dealer.Deal(3, deck);
+
+            var expectedHands = new List<Cards>
+                                {
+                                    new Cards(new List<Card> { new Card(Suit.Clubs, Rank.Ace) }),
+                                    new Cards(new List<Card> { new Card(Suit.Clubs, Rank.Two) }),
+                                    new Cards(new List<Card> { new Card(Suit.Clubs, Rank.Three) })
+                                };
+            CollectionAssert.AreEqual(expectedHands, hands);
+        }
     }
 }
