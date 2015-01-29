@@ -27,5 +27,18 @@ namespace CelticEgyptianRatscrewKata
         {
             return new Cards(Enumerable.Empty<Card>());
         }
+
+        public override string ToString()
+        {
+            var output = "";
+
+            foreach (var card in m_Cards)
+            {
+                if (!output.Equals("")) output += ", ";
+                output += card;
+            }
+
+            return output;
+        }
     }
 }
