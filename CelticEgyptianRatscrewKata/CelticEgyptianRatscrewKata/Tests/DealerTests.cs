@@ -18,6 +18,22 @@ namespace CelticEgyptianRatscrewKata.Tests
         }
 
         [Test]
+        public void DealingAnEmptyDeckToTwoPiles()
+        {
+            var deck = Cards.Empty();
+            var dealer = new Dealer();
+
+            var hands = dealer.Deal(2, deck);
+
+            var expectedHands = new List<Cards>
+                                {
+                                    Cards.Empty(),
+                                    Cards.Empty()
+                                };
+            CollectionAssert.AreEqual(expectedHands, hands);
+        }
+
+        [Test]
         public void DealingOneCardToOnePile()
         {
             var deck = Cards.With(new Card(Suit.Clubs, Rank.Ace));
