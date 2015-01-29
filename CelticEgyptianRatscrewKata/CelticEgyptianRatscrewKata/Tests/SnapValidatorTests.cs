@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CelticEgyptianRatscrewKata.SnapRules;
 using Moq;
 using NUnit.Framework;
 

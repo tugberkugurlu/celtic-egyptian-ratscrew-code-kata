@@ -46,12 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
-    <Compile Include="IRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rank.cs" />
     <Compile Include="SnapRules\DarkQueenSnapRule.cs" />
+    <Compile Include="SnapRules\IRule.cs" />
+    <Compile Include="SnapRules\SnapValidator.cs" />
     <Compile Include="SnapRules\StandardSnapRule.cs" />
-    <Compile Include="SnapValidator.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Tests\DarkQueenSnapRuleTests.cs" />
     <Compile Include="SnapRules\SandwichSnapRule.cs" />
