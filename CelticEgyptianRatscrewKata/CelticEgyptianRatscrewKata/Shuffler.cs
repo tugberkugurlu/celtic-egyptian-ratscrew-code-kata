@@ -4,7 +4,7 @@
     {
         public Cards Shuffle(Cards deck)
         {
-            return null;
+            return Cards.Empty();
         }
     }
 }
