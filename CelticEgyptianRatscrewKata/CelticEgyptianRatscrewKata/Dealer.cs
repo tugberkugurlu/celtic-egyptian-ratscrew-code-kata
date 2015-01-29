@@ -16,7 +16,10 @@ namespace CelticEgyptianRatscrewKata
 
             while (deck.HasCards)
             {
-                hands.ElementAt(0).AddToTop(deck.Pop());
+                for (int i = 0; i < numberOfHands; i++)
+                {
+                    hands.ElementAt(i).AddToTop(deck.Pop());
+                }
             }
 
             return hands;
