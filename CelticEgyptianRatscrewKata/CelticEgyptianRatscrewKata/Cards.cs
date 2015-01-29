@@ -42,7 +42,12 @@ namespace CelticEgyptianRatscrewKata
 
         public static Cards Empty()
         {
-            return new Cards(Enumerable.Empty<Card>());
+            return With();
+        }
+
+        public static Cards With(params Card[] cards)
+        {
+            return new Cards(cards);
         }
 
         public override string ToString()
