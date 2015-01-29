@@ -13,6 +13,23 @@ namespace CelticEgyptianRatscrewKata
             m_Cards = new List<Card>(cards);
         }
 
+        public void AddToTop(Card card)
+        {
+            m_Cards.Add(card);
+        }
+
+        public Card Pop()
+        {
+            var first = m_Cards.First();
+            m_Cards.RemoveAt(0);
+            return first;
+        }
+
+        public bool HasCards
+        {
+            get { return m_Cards.Count > 0; } 
+        }
+
         public IEnumerator<Card> GetEnumerator()
         {
             return m_Cards.GetEnumerator();
