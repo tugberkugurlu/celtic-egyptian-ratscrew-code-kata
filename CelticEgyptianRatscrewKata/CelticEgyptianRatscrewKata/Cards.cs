@@ -45,6 +45,11 @@ namespace CelticEgyptianRatscrewKata
             return With();
         }
 
+        public static Cards With(Cards cards)
+        {
+            return With(cards.ToArray());
+        }
+
         public static Cards With(params Card[] cards)
         {
             return new Cards(cards);
