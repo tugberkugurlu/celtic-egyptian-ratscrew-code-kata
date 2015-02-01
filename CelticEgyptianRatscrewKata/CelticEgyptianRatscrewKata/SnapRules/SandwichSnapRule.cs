@@ -2,7 +2,7 @@
 {
     public class SandwichSnapRule : IRule
     {
-        public bool CanSnap(Stack stack)
+        public bool CanSnap(Cards stack)
         {
             Rank? oneBeforeCurrent = null;
             Rank? twoBeforeCurrent = null;

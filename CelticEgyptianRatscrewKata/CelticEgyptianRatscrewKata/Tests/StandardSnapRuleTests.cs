@@ -9,7 +9,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         [Test]
         public void ShouldFailOnEmptyStack()
         {
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
 
             var rule = new StandardSnapRule();
             Assert.That(rule.CanSnap(stack), Is.False);
@@ -18,7 +18,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         [Test]
         public void ShouldFailIfNoPairFound()
         {
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
                 new Card(Suit.Clubs, Rank.Two),
@@ -31,7 +31,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         [Test]
         public void ShouldPassIfPairInStack()
         {
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
                 new Card(Suit.Clubs, Rank.Two),

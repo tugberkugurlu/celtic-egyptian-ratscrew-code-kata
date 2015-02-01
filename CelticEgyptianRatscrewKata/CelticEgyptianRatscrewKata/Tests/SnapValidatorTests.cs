@@ -12,10 +12,10 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldNotBeSnappableIfAllRulesReturnFalse()
         {
             var ruleMock = new Mock<IRule>();
-            ruleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
+            ruleMock.Setup(x => x.CanSnap(It.IsAny<Cards>())).Returns(false);
             var rules = new List<IRule> { ruleMock.Object, ruleMock.Object };
 
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
             var snapValidator = new SnapValidator();
             bool canSnap = snapValidator.CanSnap(stack, rules);
 
@@ -27,11 +27,11 @@ namespace CelticEgyptianRatscrewKata.Tests
         {
             var falseRuleMock = new Mock<IRule>();
             var trueRuleMock = new Mock<IRule>();
-            falseRuleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
-            trueRuleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(true);
+            falseRuleMock.Setup(x => x.CanSnap(It.IsAny<Cards>())).Returns(false);
+            trueRuleMock.Setup(x => x.CanSnap(It.IsAny<Cards>())).Returns(true);
             var rules = new List<IRule> { falseRuleMock.Object, trueRuleMock.Object };
 
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
             var snapValidator = new SnapValidator();
             bool canSnap = snapValidator.CanSnap(stack, rules);
 
@@ -42,10 +42,10 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldPassStackToRule()
         {
             var ruleMock = new Mock<IRule>();
-            ruleMock.Setup(x => x.CanSnap(It.IsAny<Stack>())).Returns(false);
+            ruleMock.Setup(x => x.CanSnap(It.IsAny<Cards>())).Returns(false);
             var rules = new List<IRule> { ruleMock.Object };
 
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
             var snapValidator = new SnapValidator();
             snapValidator.CanSnap(stack, rules);
 

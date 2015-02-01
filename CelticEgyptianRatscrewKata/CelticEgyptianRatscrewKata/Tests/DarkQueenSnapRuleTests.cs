@@ -10,7 +10,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldFailOnEmptyStack()
         {
             var rule = new DarkQueenSnapRule();
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
             Assert.That(rule.CanSnap(stack), Is.False);
         }
 
@@ -18,7 +18,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldFailWithQueenNotAtTop()
         {
             var rule = new DarkQueenSnapRule();
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
                 new Card(Suit.Spades, Rank.Queen)
@@ -30,7 +30,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldFailWithNoQueenOfSpades()
         {
             var rule = new DarkQueenSnapRule();
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
             });
@@ -41,7 +41,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldPassWithQueenAtTop()
         {
             var rule = new DarkQueenSnapRule();
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Spades, Rank.Queen),
                 new Card(Suit.Clubs, Rank.Ace)

@@ -6,7 +6,7 @@ namespace CelticEgyptianRatscrewKata.SnapRules
     {
         private static readonly Card s_QueenOfSpades = new Card(Suit.Spades, Rank.Queen);
 
-        public bool CanSnap(Stack stack)
+        public bool CanSnap(Cards stack)
         {
             var topCard = stack.FirstOrDefault();
             return s_QueenOfSpades.Equals(topCard);

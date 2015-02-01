@@ -10,7 +10,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldFailOnEmptyStack()
         {
             var rule = new SandwichSnapRule();
-            var stack = Stack.Empty();
+            var stack = Cards.Empty();
             Assert.That(rule.CanSnap(stack), Is.False);
         }
 
@@ -18,7 +18,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldFailWithSandwichInStack()
         {
             var rule = new SandwichSnapRule();
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
                 new Card(Suit.Clubs, Rank.Two),
@@ -31,7 +31,7 @@ namespace CelticEgyptianRatscrewKata.Tests
         public void ShouldPassWithSandwichInStack()
         {
             var rule = new SandwichSnapRule();
-            var stack = new Stack(new List<Card>
+            var stack = new Cards(new List<Card>
             {
                 new Card(Suit.Clubs, Rank.Ace),
                 new Card(Suit.Clubs, Rank.Two),

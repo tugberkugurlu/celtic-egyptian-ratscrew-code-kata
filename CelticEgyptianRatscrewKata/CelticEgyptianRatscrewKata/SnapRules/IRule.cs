@@ -2,6 +2,6 @@
 {
     public interface IRule
     {
-        bool CanSnap(Stack stack);
+        bool CanSnap(Cards stack);
     }
 }

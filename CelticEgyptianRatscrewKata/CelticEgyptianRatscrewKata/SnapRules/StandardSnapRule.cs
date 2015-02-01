@@ -2,7 +2,7 @@
 {
     public class StandardSnapRule : IRule
     {
-        public bool CanSnap(Stack stack)
+        public bool CanSnap(Cards stack)
         {
             Rank? previous = null;
             foreach (var card in stack)
