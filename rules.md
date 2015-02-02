@@ -1,6 +1,8 @@
 # Game rules
 
 ## Overview
+Celtic Egyptian Ratscrew is basically snap, but with a few extra rules.
+
 The object of the game is to accrue all the cards from the deck into your hand. Play proceeds clockwise around the circle of players, with each player laying a card onto the centre stack and calling out a sequence number: the first card is 1 (or “ace”), the second card is 2, up until the 11th card which can be called 11 or “jack”. The counting is reset to 1/”ace” on the 14th card. Any player may call snap on any player’s turn to win the stack, like in classic Snap, although the snap rule is more complex and explained later. A player incorrectly snapping the stack incurs a penalty, preventing that player from calling snap again until another player has won the stack.
 
 ## Rules
