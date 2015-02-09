@@ -63,5 +63,15 @@ namespace CelticEgyptianRatscrewKata
         {
             _hand = hand;
         }
+
+        public Card LayCard()
+        {
+            if (_hand == null)
+            {
+                throw new InvalidOperationException("Hand has not been dealt yet.");
+            }
+
+            return _hand.Pop();
+        }
     }
 }
