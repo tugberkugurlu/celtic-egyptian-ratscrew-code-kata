@@ -68,5 +68,19 @@ namespace CelticEgyptianRatscrewKata.Game
                 m_GameState.AddPlayer(m_Players[i].Name, decks[i]);
             }
         }
+
+        public bool TryGetWinner(out IPlayer winner)
+        {
+            var playersWithCards = m_Players.Where(p => m_GameState.HasCards(p.Name)).ToList();
+
+            if (!m_GameState.Stack.Any() && playersWithCards.Count() == 1)
+            {
+                winner = playersWithCards.Single();
+                return true;
+            }
+
+            winner = null;
+            return false;
+        }
     }
 }
