@@ -15,7 +15,7 @@ namespace CelticEgyptianRatscrewKata.Game
         private readonly Shuffler m_Shuffler;
         private readonly IList<IPlayer> m_Players;
         private readonly IEnumerable<IRule> m_Rules;
-        private readonly GameState m_GameState;
+        private GameState m_GameState;
 
         public GameController(SnapValidator snapValidator, IEnumerable<IRule> rules, Dealer dealer, Shuffler shuffler)
         {
@@ -51,6 +51,21 @@ namespace CelticEgyptianRatscrewKata.Game
             if (m_SnapValidator.CanSnap(m_GameState.Stack, m_Rules))
             {
                 m_GameState.WinStack(player.Name);
+            }
+        }
+
+        /// <summary>
+        /// Starts a game with the currently added players
+        /// </summary>
+        public void StartGame(Cards deck)
+        {
+            m_GameState = new GameState();
+
+            var shuffledDeck = m_Shuffler.Shuffle(deck);
+            var decks = m_Dealer.Deal(m_Players.Count, shuffledDeck);
+            for (var i = 0; i < decks.Count; i++)
+            {
+                m_GameState.AddPlayer(m_Players[i].Name, decks[i]);
             }
         }
     }
