@@ -38,5 +38,18 @@ namespace CelticEgyptianRatscrewKata.Game
             var topCard = m_Decks[playerId].Pop();
             m_Stack.AddToTop(topCard);
         }
+
+        /// <summary>
+        /// Wins the stack for the given player.
+        /// </summary>
+        public void WinStack(string playerId)
+        {
+            Debug.Assert(m_Decks.ContainsKey(playerId));
+
+            foreach (var card in m_Stack.Reverse())
+            {
+                m_Decks[playerId].AddToBottom(card);
+            }
+        }
     }
 }
