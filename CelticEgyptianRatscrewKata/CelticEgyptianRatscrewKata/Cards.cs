@@ -15,7 +15,12 @@ namespace CelticEgyptianRatscrewKata
 
         public void AddToTop(Card card)
         {
-            m_Cards.Add(card);
+            m_Cards.Insert(0, card);
+        }
+
+        public void AddToBottom(Card card)
+        {
+            m_Cards.Insert(m_Cards.Count, card);
         }
 
         public Card Pop()
