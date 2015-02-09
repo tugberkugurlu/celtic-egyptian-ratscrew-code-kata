@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -53,6 +54,22 @@ namespace CelticEgyptianRatscrewKata
         public static Cards Empty()
         {
             return With();
+        }
+
+        public static Cards Deck()
+        {
+            return new Cards(DeckCards());
+        }
+
+        private static IEnumerable<Card> DeckCards()
+        {
+            foreach (Suit suit in Enum.GetValues(typeof (Suit)))
+            {
+                foreach (Rank rank in Enum.GetValues(typeof (Rank)))
+                {
+                    yield return new Card(suit, rank);
+                }
+            }
         }
 
         public static Cards With(Cards cards)

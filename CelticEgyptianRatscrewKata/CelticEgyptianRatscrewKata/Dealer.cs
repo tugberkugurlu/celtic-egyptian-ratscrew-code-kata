@@ -3,7 +3,12 @@ using System.Linq;
 
 namespace CelticEgyptianRatscrewKata
 {
-    public class Dealer
+    public interface IDealer
+    {
+        List<Cards> Deal(int numberOfHands, Cards deck);
+    }
+
+    public class Dealer : IDealer
     {
         public List<Cards> Deal(int numberOfHands, Cards deck)
         {

@@ -3,7 +3,12 @@ using System.Linq;
 
 namespace CelticEgyptianRatscrewKata
 {
-    public class Shuffler
+    public interface IShuffler
+    {
+        Cards Shuffle(Cards deck);
+    }
+
+    public class Shuffler : IShuffler
     {
         private readonly IRandomNumberGenerator m_RandomNumberGenerator;
 
