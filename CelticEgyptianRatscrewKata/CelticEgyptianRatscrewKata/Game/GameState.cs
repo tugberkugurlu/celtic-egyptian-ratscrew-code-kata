@@ -28,6 +28,8 @@ namespace CelticEgyptianRatscrewKata.Game
             m_Decks = decks;
         }
 
+        public Cards Stack { get {return new Cards(m_Stack);} }
+
         /// <summary>
         /// Add the given player to the game with the given deck.
         /// </summary>
@@ -60,6 +62,16 @@ namespace CelticEgyptianRatscrewKata.Game
             foreach (var card in m_Stack.Reverse())
             {
                 m_Decks[playerId].AddToBottom(card);
+            }
+
+            ClearStack();
+        }
+
+        private void ClearStack()
+        {
+            while (m_Stack.HasCards)
+            {
+                m_Stack.RemoveCardAt(0);
             }
         }
 
