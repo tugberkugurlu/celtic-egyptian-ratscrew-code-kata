@@ -62,5 +62,11 @@ namespace CelticEgyptianRatscrewKata.Game
                 m_Decks[playerId].AddToBottom(card);
             }
         }
+
+        public bool HasCards(string playerId)
+        {
+            Debug.Assert(m_Decks.ContainsKey(playerId));
+            return m_Decks[playerId].Any();
+        }
     }
 }
