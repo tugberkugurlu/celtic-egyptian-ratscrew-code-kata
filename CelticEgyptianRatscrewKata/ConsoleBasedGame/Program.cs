@@ -15,10 +15,18 @@ namespace ConsoleBasedGame
 
             foreach (var playerInfo in playerInfos)
             {
-                
+                game.AddPlayer(new Player(playerInfo.PlayerName));
             }
 
             game.StartGame(GameFactory.CreateFullDeckOfCards());
+
+            ConsoleKeyInfo keyPress;
+            do
+            {
+                keyPress = Console.ReadKey();
+                Console.WriteLine();
+
+            } while (keyPress.Key != ConsoleKey.Escape);
 
         }
 
