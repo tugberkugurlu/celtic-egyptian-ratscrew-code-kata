@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CelticEgyptianRatscrewKata;
 using CelticEgyptianRatscrewKata.Game;
 
 namespace ConsoleBasedGame
@@ -16,6 +17,9 @@ namespace ConsoleBasedGame
             {
                 
             }
+
+            game.StartGame(GameFactory.CreateFullDeckOfCards());
+
         }
 
         private static IEnumerable<PlayerInfo> GetPlayerInfoFromUserLazily()
