@@ -48,6 +48,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="GameSetup\Dealer.cs" />
     <Compile Include="GameSetup\IRandomNumberGenerator.cs" />
+    <Compile Include="GameSetup\IShuffler.cs" />
     <Compile Include="GameSetup\RandomNumberGenerator.cs" />
     <Compile Include="GameSetup\Shuffler.cs" />
     <Compile Include="Game\GameController.cs" />
