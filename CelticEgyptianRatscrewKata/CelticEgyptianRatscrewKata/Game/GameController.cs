@@ -14,7 +14,7 @@ namespace CelticEgyptianRatscrewKata.Game
         private readonly IDealer m_Dealer;
         private readonly IShuffler m_Shuffler;
         private readonly IList<IPlayer> m_Players;
-        private GameState m_GameState;
+        private readonly GameState m_GameState;
 
         public GameController(ISnapValidator snapValidator, IDealer dealer, IShuffler shuffler)
         {
@@ -57,7 +57,7 @@ namespace CelticEgyptianRatscrewKata.Game
         /// </summary>
         public void StartGame(Cards deck)
         {
-            m_GameState = new GameState();
+            m_GameState.Clear();
 
             var shuffledDeck = m_Shuffler.Shuffle(deck);
             var decks = m_Dealer.Deal(m_Players.Count, shuffledDeck);

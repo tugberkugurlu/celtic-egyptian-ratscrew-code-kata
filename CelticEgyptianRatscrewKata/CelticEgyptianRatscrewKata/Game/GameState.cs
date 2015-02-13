@@ -80,5 +80,11 @@ namespace CelticEgyptianRatscrewKata.Game
             Debug.Assert(m_Decks.ContainsKey(playerId));
             return m_Decks[playerId].Any();
         }
+
+        public void Clear()
+        {
+            ClearStack();
+            m_Decks.Clear();
+        }
     }
 }
