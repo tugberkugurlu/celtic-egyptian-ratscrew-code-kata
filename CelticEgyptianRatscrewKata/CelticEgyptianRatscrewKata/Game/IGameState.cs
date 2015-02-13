@@ -4,6 +4,9 @@ namespace CelticEgyptianRatscrewKata.Game
 {
     public interface IGameState
     {
+        /// <summary>
+        /// Gets a copy of the current stack of cards.
+        /// </summary>
         Cards Stack { get; }
 
         /// <summary>
@@ -22,7 +25,14 @@ namespace CelticEgyptianRatscrewKata.Game
         /// </summary>
         void WinStack(string playerId);
 
+        /// <summary>
+        /// Returns true if the given player has any cards in their hand.
+        /// </summary>
         bool HasCards(string playerId);
+
+        /// <summary>
+        /// Resets the game state back to its default values.
+        /// </summary>
         void Clear();
     }
 }
