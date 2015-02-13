@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CelticEgyptianRatscrewKata.SnapRules
 {
-    public class SnapValidator
+    public class SnapValidator : ISnapValidator
     {
         private readonly IEnumerable<IRule> m_Rules;
 
