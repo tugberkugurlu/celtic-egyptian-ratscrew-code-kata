@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using CelticEgyptianRatscrewKata;
 using CelticEgyptianRatscrewKata.Game;
 
@@ -21,12 +22,11 @@ namespace ConsoleBasedGame
 
             game.StartGame(GameFactory.CreateFullDeckOfCards());
 
-            ConsoleKeyInfo keyPress;
-            do
+            char userInput;
+            while (userInterface.TryReadUserInput(out userInput))
             {
-                keyPress = userInterface.ReadUserInput();
-            } while (keyPress.Key != ConsoleKey.Escape);
 
+            } 
         }
     }
 }

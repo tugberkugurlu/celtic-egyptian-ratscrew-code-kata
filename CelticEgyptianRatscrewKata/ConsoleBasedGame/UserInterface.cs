@@ -29,11 +29,12 @@ namespace ConsoleBasedGame
             return response;
         }
 
-        public ConsoleKeyInfo ReadUserInput()
+        public bool TryReadUserInput(out char userInput)
         {
             ConsoleKeyInfo keyPress = Console.ReadKey();
             Console.WriteLine();
-            return keyPress;
+            userInput = keyPress.KeyChar;
+            return keyPress.Key != ConsoleKey.Escape;
         }
     }
 }
