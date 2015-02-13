@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CelticEgyptianRatscrewKata.SnapRules;
 
@@ -14,15 +13,13 @@ namespace CelticEgyptianRatscrewKata.Game
         private readonly Dealer m_Dealer;
         private readonly Shuffler m_Shuffler;
         private readonly IList<IPlayer> m_Players;
-        private readonly IEnumerable<IRule> m_Rules;
         private GameState m_GameState;
 
-        public GameController(SnapValidator snapValidator, IEnumerable<IRule> rules, Dealer dealer, Shuffler shuffler)
+        public GameController(SnapValidator snapValidator, Dealer dealer, Shuffler shuffler)
         {
             m_Players = new List<IPlayer>();
             m_GameState = new GameState();
             m_SnapValidator = snapValidator;
-            m_Rules = rules;
             m_Dealer = dealer;
             m_Shuffler = shuffler;
         }
@@ -48,7 +45,7 @@ namespace CelticEgyptianRatscrewKata.Game
         {
             AddPlayer(player);
 
-            if (m_SnapValidator.CanSnap(m_GameState.Stack, m_Rules))
+            if (m_SnapValidator.CanSnap(m_GameState.Stack))
             {
                 m_GameState.WinStack(player.Name);
             }

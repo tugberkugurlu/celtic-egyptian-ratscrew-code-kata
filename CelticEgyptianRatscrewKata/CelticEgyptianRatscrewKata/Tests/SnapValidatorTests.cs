@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using CelticEgyptianRatscrewKata.SnapRules;
 using Moq;
 using NUnit.Framework;
@@ -16,8 +15,8 @@ namespace CelticEgyptianRatscrewKata.Tests
             var rules = new List<IRule> { ruleMock.Object, ruleMock.Object };
 
             var stack = Cards.Empty();
-            var snapValidator = new SnapValidator();
-            bool canSnap = snapValidator.CanSnap(stack, rules);
+            var snapValidator = new SnapValidator(rules);
+            bool canSnap = snapValidator.CanSnap(stack);
 
             Assert.That(canSnap, Is.False);
         }
@@ -32,8 +31,8 @@ namespace CelticEgyptianRatscrewKata.Tests
             var rules = new List<IRule> { falseRuleMock.Object, trueRuleMock.Object };
 
             var stack = Cards.Empty();
-            var snapValidator = new SnapValidator();
-            bool canSnap = snapValidator.CanSnap(stack, rules);
+            var snapValidator = new SnapValidator(rules);
+            bool canSnap = snapValidator.CanSnap(stack);
 
             Assert.That(canSnap, Is.True);
         }
@@ -46,8 +45,8 @@ namespace CelticEgyptianRatscrewKata.Tests
             var rules = new List<IRule> { ruleMock.Object };
 
             var stack = Cards.Empty();
-            var snapValidator = new SnapValidator();
-            snapValidator.CanSnap(stack, rules);
+            var snapValidator = new SnapValidator(rules);
+            snapValidator.CanSnap(stack);
 
             ruleMock.Verify(r => r.CanSnap(stack), Times.Once());            
         }

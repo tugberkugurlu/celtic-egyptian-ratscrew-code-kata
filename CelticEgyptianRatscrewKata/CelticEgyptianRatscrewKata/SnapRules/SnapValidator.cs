@@ -5,9 +5,16 @@ namespace CelticEgyptianRatscrewKata.SnapRules
 {
     public class SnapValidator
     {
-        public bool CanSnap(Cards stack, IEnumerable<IRule> rules)
+        private readonly IEnumerable<IRule> m_Rules;
+
+        public SnapValidator(IEnumerable<IRule> rules)
         {
-            return rules.Any(rule => rule.CanSnap(stack));
+            m_Rules = rules;
+        }
+
+        public bool CanSnap(Cards stack)
+        {
+            return m_Rules.Any(rule => rule.CanSnap(stack));
         }
     }
 }
