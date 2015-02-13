@@ -28,5 +28,12 @@ namespace ConsoleBasedGame
             Console.WriteLine();
             return response;
         }
+
+        public ConsoleKeyInfo ReadUserInput()
+        {
+            ConsoleKeyInfo keyPress = Console.ReadKey();
+            Console.WriteLine();
+            return keyPress;
+        }
     }
 }

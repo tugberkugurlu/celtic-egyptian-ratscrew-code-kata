@@ -24,9 +24,7 @@ namespace ConsoleBasedGame
             ConsoleKeyInfo keyPress;
             do
             {
-                keyPress = Console.ReadKey();
-                Console.WriteLine();
-
+                keyPress = userInterface.ReadUserInput();
             } while (keyPress.Key != ConsoleKey.Escape);
 
         }
