@@ -30,19 +30,12 @@ namespace CelticEgyptianRatscrewKata.Game
 
         public Cards Stack { get {return new Cards(m_Stack);} }
 
-        /// <summary>
-        /// Add the given player to the game with the given deck.
-        /// </summary>
-        /// <exception cref="ArgumentException">If the given player already exists</exception>
         public void AddPlayer(string playerId, Cards deck)
         {
             if (m_Decks.ContainsKey(playerId)) throw new ArgumentException("Can't add the same player twice");
             m_Decks.Add(playerId, deck);
         }
 
-        /// <summary>
-        /// Play the top card of the given player's deck.
-        /// </summary>
         public void PlayCard(string playerId)
         {
             Debug.Assert(m_Decks.ContainsKey(playerId));
@@ -52,9 +45,6 @@ namespace CelticEgyptianRatscrewKata.Game
             m_Stack.AddToTop(topCard);
         }
 
-        /// <summary>
-        /// Wins the stack for the given player.
-        /// </summary>
         public void WinStack(string playerId)
         {
             Debug.Assert(m_Decks.ContainsKey(playerId));
