@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using CelticEgyptianRatscrewKata;
-using CelticEgyptianRatscrewKata.Game;
+﻿using CelticEgyptianRatscrewKata.Game;
 
 namespace ConsoleBasedGame
 {
