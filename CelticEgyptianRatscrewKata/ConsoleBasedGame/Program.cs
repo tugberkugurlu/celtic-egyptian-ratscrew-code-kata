@@ -11,7 +11,8 @@ namespace ConsoleBasedGame
         {
             var game = new GameFactory().Create();
 
-            var playerInfos = GetPlayerInfoFromUserLazily();
+            var userInterface = new UserInterface();
+            var playerInfos = userInterface.GetPlayerInfoFromUserLazily();
 
             foreach (var playerInfo in playerInfos)
             {
@@ -28,30 +29,6 @@ namespace ConsoleBasedGame
 
             } while (keyPress.Key != ConsoleKey.Escape);
 
-        }
-
-        private static IEnumerable<PlayerInfo> GetPlayerInfoFromUserLazily()
-        {
-            bool again;
-            do
-            {
-                Console.Write("Enter player name: ");
-                var playerName = Console.ReadLine();
-                var playCardKey = AskForKey("Enter play card key: ");
-                var snapKey = AskForKey("Enter snap key: ");
-                yield return new PlayerInfo(playerName, playCardKey, snapKey);
-
-                var createPlayerKey = AskForKey("Create another player? (y|n): ");
-                again = createPlayerKey.Equals('y');
-            } while (again);
-        }
-
-        private static char AskForKey(string prompt)
-        {
-            Console.Write(prompt);
-            var response = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            return response;
         }
     }
 }
