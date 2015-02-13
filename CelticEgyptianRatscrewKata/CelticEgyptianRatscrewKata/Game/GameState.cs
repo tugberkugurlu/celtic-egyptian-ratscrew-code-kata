@@ -38,8 +38,8 @@ namespace CelticEgyptianRatscrewKata.Game
 
         public void PlayCard(string playerId)
         {
-            Debug.Assert(m_Decks.ContainsKey(playerId));
-            Debug.Assert(m_Decks[playerId].Any());
+            if (!m_Decks.ContainsKey(playerId)) throw new ArgumentException("The selected player doesn't exist");
+            if (!m_Decks[playerId].Any()) throw new ArgumentException("The selected player doesn't have any cards left");
 
             var topCard = m_Decks[playerId].Pop();
             m_Stack.AddToTop(topCard);
@@ -47,7 +47,7 @@ namespace CelticEgyptianRatscrewKata.Game
 
         public void WinStack(string playerId)
         {
-            Debug.Assert(m_Decks.ContainsKey(playerId));
+            if (!m_Decks.ContainsKey(playerId)) throw new ArgumentException("The selected player doesn't exist");
 
             foreach (var card in m_Stack.Reverse())
             {
@@ -67,7 +67,7 @@ namespace CelticEgyptianRatscrewKata.Game
 
         public bool HasCards(string playerId)
         {
-            Debug.Assert(m_Decks.ContainsKey(playerId));
+            if (!m_Decks.ContainsKey(playerId)) throw new ArgumentException("The selected player doesn't exist");
             return m_Decks[playerId].Any();
         }
 
