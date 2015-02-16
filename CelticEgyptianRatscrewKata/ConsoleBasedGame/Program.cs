@@ -1,4 +1,5 @@
-﻿using CelticEgyptianRatscrewKata.Game;
+﻿using System.Collections.Generic;
+using CelticEgyptianRatscrewKata.Game;
 
 namespace ConsoleBasedGame
 {
@@ -6,12 +7,12 @@ namespace ConsoleBasedGame
     {
         static void Main(string[] args)
         {
-            var game = new GameFactory().Create();
+            GameController game = new GameFactory().Create();
 
             var userInterface = new UserInterface();
-            var playerInfos = userInterface.GetPlayerInfoFromUserLazily();
+            IEnumerable<PlayerInfo> playerInfos = userInterface.GetPlayerInfoFromUserLazily();
 
-            foreach (var playerInfo in playerInfos)
+            foreach (PlayerInfo playerInfo in playerInfos)
             {
                 game.AddPlayer(new Player(playerInfo.PlayerName));
             }
