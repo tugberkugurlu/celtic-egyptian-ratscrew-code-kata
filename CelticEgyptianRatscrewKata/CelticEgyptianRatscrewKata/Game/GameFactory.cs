@@ -5,7 +5,7 @@ namespace CelticEgyptianRatscrewKata.Game
 {
     public class GameFactory
     {
-        public GameController Create()
+        public GameController Create(IGameEventReporter reporter)
         {
             IRule[] rules =
             {
@@ -13,7 +13,7 @@ namespace CelticEgyptianRatscrewKata.Game
                 new SandwichSnapRule(),
                 new StandardSnapRule(),
             };
-            return new GameController(new GameState(), new SnapValidator(rules), new Dealer(), new Shuffler());
+            return new GameController(new GameState(), new SnapValidator(rules), new Dealer(), new Shuffler(), reporter);
         }
 
         public static Cards CreateFullDeckOfCards()

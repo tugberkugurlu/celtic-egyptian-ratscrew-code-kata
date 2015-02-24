@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CelticEgyptianRatscrewKata.Game
 {
@@ -18,7 +20,7 @@ namespace CelticEgyptianRatscrewKata.Game
         /// <summary>
         /// Play the top card of the given player's deck.
         /// </summary>
-        void PlayCard(string playerId);
+        Card PlayCard(string playerId);
 
         /// <summary>
         /// Wins the stack for the given player.
@@ -34,5 +36,14 @@ namespace CelticEgyptianRatscrewKata.Game
         /// Resets the game state back to its default values.
         /// </summary>
         void Clear();
+
+        GameStateReport GetCurrentStateReport();
+    }
+
+    public class GameStateReport
+    {
+        public Card TopCard;
+        public int StackSize;
+        public IEnumerable<Tuple<string, int>> PlayerStacks;
     }
 }

@@ -2,6 +2,7 @@
 using CelticEgyptianRatscrewKata.Game;
 using CelticEgyptianRatscrewKata.GameSetup;
 using CelticEgyptianRatscrewKata.SnapRules;
+using Moq;
 using NUnit.Framework;
 
 namespace CelticEgyptianRatscrewKata.Tests
@@ -54,7 +55,7 @@ namespace CelticEgyptianRatscrewKata.Tests
             var dealer = new Dealer();
             var noneShufflingShuffler = new NoneShufflingShuffler();
 
-            return new GameController(gameState, completeSnapValidator, dealer, noneShufflingShuffler);
+            return new GameController(gameState, completeSnapValidator, dealer, noneShufflingShuffler, Mock.Of<IGameEventReporter>());
         }
 
         private static ISnapValidator CreateCompleteSnapValidator()

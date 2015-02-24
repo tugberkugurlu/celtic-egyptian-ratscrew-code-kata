@@ -16,13 +16,16 @@ namespace CelticEgyptianRatscrewKata.Game
         private readonly IList<IPlayer> m_Players;
         private readonly IGameState m_GameState;
 
-        public GameController(IGameState gameState, ISnapValidator snapValidator, IDealer dealer, IShuffler shuffler)
+        private IGameEventReporter m_Reporter;
+
+        public GameController(IGameState gameState, ISnapValidator snapValidator, IDealer dealer, IShuffler shuffler, IGameEventReporter mReporter)
         {
             m_Players = new List<IPlayer>();
             m_GameState = gameState;
             m_SnapValidator = snapValidator;
             m_Dealer = dealer;
             m_Shuffler = shuffler;
+            m_Reporter = mReporter;
         }
 
         public bool AddPlayer(IPlayer player)
@@ -38,7 +41,8 @@ namespace CelticEgyptianRatscrewKata.Game
         {
             if (m_GameState.HasCards(player.Name))
             {
-                m_GameState.PlayCard(player.Name);
+                var cardPlayed = m_GameState.PlayCard(player.Name);
+                m_Reporter.OnCardPlayed(player, cardPlayed, GetReport(player));
             }
         }
 
@@ -49,7 +53,17 @@ namespace CelticEgyptianRatscrewKata.Game
             if (m_SnapValidator.CanSnap(m_GameState.Stack))
             {
                 m_GameState.WinStack(player.Name);
+                m_Reporter.OnStackSnapped(player, GetReport(player));
             }
+        }
+
+        private TurnReport GetReport(IPlayer lastPlayed)
+        {
+            return new TurnReport()
+            {
+                State = m_GameState.GetCurrentStateReport(),
+                NextPlayer = m_Players[(m_Players.IndexOf(lastPlayed) + 1) % m_Players.Count]
+            };
         }
 
         /// <summary>
@@ -80,5 +94,17 @@ namespace CelticEgyptianRatscrewKata.Game
             winner = null;
             return false;
         }
+    }
+
+    public class TurnReport
+    {
+        public IPlayer NextPlayer;
+        public GameStateReport State;
+    }
+
+    public interface IGameEventReporter
+    {
+        void OnCardPlayed(IPlayer player, Card card, TurnReport report);
+        void OnStackSnapped(IPlayer player, TurnReport report);
     }
 }

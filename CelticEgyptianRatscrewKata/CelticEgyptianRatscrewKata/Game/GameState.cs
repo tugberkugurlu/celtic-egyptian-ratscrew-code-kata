@@ -36,13 +36,14 @@ namespace CelticEgyptianRatscrewKata.Game
             m_Decks.Add(playerId, deck);
         }
 
-        public void PlayCard(string playerId)
+        public Card PlayCard(string playerId)
         {
             if (!m_Decks.ContainsKey(playerId)) throw new ArgumentException("The selected player doesn't exist");
             if (!m_Decks[playerId].Any()) throw new ArgumentException("The selected player doesn't have any cards left");
 
             var topCard = m_Decks[playerId].Pop();
             m_Stack.AddToTop(topCard);
+            return topCard;
         }
 
         public void WinStack(string playerId)
@@ -75,6 +76,18 @@ namespace CelticEgyptianRatscrewKata.Game
         {
             ClearStack();
             m_Decks.Clear();
+        }
+
+        public GameStateReport GetCurrentStateReport()
+        {
+            return new GameStateReport
+            {
+                TopCard = m_Stack.HasCards ? m_Stack.CardAt(0) : null
+                ,
+                StackSize = m_Stack.Count(),
+                PlayerStacks = m_Decks.Select(
+                    x => new Tuple<string, int>(x.Key, x.Value.Count()))
+            };
         }
     }
 }
